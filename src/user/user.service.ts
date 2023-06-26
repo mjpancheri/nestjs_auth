@@ -32,19 +32,31 @@ export class UserService {
     });
   }
 
-  // findAll() {
-  //   return `This action returns all user`;
-  // }
+  async findAll() {
+    return this.prisma.user.findMany();
+  }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} user`;
-  // }
+  async findOne(id: number) {
+    return this.prisma.user.findFirst({
+      where: { id },
+    });
+  }
 
-  // update(id: number, updateUserDto: UpdateUserDto) {
-  //   return `This action updates a #${id} user`;
-  // }
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const user = await this.prisma.user.update({
+      where: { id },
+      data: updateUserDto,
+    });
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} user`;
-  // }
+    return {
+      ...user,
+      password: undefined,
+    };
+  }
+
+  async remove(id: number) {
+    return this.prisma.user.delete({
+      where: { id },
+    });
+  }
 }
