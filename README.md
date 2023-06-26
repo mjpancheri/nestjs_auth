@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A simple authentication service with [Nest](https://github.com/nestjs/nest) framework and [JWT](https://jwt.io). The documentation is provided by Swagger in [http://localhost:3000/api](http://localhost:3000/api).
 
 ## Installation
 
